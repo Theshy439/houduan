@@ -1,0 +1,53 @@
+spring:
+   output:
+      ansi:
+         enabled: always
+   datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/qsoa?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      username: itdpt_dev
+      password: peN0Wz1bX2AX#E@S7rsNzfE26yMC #E@S7rsNzfE26yMC
+      initialSize: 1
+      minIdle: 3
+      maxActive: 20
+# 配置获取连接等待超时的时间
+      maxWait: 60000
+# 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+# 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+# 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+# 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+# filters: stat,wall,slf4j
+# 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+#connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+# 合并多个DruidDataSource的监控数据
+#useGlobalDataSourceStat: true
+   jackson:
+      time-zone: GMT+8
+      date-format: yyyy-MM-dd HH:mm:ss
+   servlet:
+      multipart:
+         max-file-size: 30Mb
+         max-request-size: 30Mb
+#  devtools:
+#    restart:
+#      enabled: true
+#  cache:
+#    type: ehcache
+#    ehcache:
+#      config: classpath:config/ehcache.xml
+mybatis:
+   configuration:
+      map-underscore-to-camel-case: true
+   mapper-locations: classpath:mybatis/**/*.xml
+   typeAliasesPackage: com.bbt.mall.**.domain
+server:
+   port: 8111
