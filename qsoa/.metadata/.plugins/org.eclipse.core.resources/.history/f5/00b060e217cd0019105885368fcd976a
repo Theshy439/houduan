@@ -24,7 +24,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void insert(AdminInfo adminInfo) {
 		adminInfoMapper.insert(adminInfo);	
-		throw new RuntimeException("主动抛出个异常");
+		//throw new RuntimeException("主动抛出个异常");
 	}
 
 }
