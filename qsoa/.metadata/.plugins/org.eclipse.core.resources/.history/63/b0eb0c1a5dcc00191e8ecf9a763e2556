@@ -1,0 +1,93 @@
+package com.qsoa.admin.pojo;
+
+public class AdminUser {
+	private Integer id;
+	private String userName;
+	private String password;
+	private Long phone;
+	private String createBy;
+	private Long createDate;
+	private String updateBy;
+	private Long updateDate;
+
+	public AdminUser() {
+	}
+
+	public AdminUser(Integer id, String userName, String password, Long phone, String createBy, Long createDate,
+			String updateBy, Long updateDate) {
+		super();
+		this.id = id;
+		UserName = userName;
+		this.password = password;
+		this.phone = phone;
+		this.createBy = createBy;
+		this.createDate = createDate;
+		this.updateBy = updateBy;
+		this.updateDate = updateDate;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return UserName;
+	}
+
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
+
+	public Long getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Long createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getUpdateBy() {
+		return updateBy;
+	}
+
+	public void setUpdateBy(String updateBy) {
+		this.updateBy = updateBy;
+	}
+
+	public Long getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Long updateDate) {
+		this.updateDate = updateDate;
+	}
+
+}

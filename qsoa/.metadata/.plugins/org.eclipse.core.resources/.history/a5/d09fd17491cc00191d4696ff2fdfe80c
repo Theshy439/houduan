@@ -1,0 +1,40 @@
+package com.qsoa.admin.controller;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.qsoa.admin.seriver.AdminService;
+import com.qsoa.system.response.Response;
+import com.qsoa.system.response.Response2;
+
+@Controller
+@RequestMapping("/api/admin")
+@RestController
+public class AdminController {
+	
+	@Resource
+	private AdminService adminService;
+	
+	@PostMapping("/register")
+	public Response register() {
+		Response res = Response.getResponse();
+		return null;
+	}
+	public static void main(String[] args) {
+		Response res = Response.getResponse();
+		res.setMessage("nihao");
+		System.out.println(res.getMessage());
+		Response res1 = Response.getResponse();
+		System.out.println(res.getMessage());
+		Response2 r2 = new Response2();
+		r2.setI(2);
+		System.out.println(r2.getI());
+		Response2 r3 = new Response2();
+		System.out.println(r3.getI());
+	}
+}

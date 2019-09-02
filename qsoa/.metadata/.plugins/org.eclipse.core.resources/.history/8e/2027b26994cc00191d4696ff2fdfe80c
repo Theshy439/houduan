@@ -1,0 +1,28 @@
+package com.qsoa.admin.controller;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.qsoa.admin.seriver.AdminService;
+import com.qsoa.system.response.Response;
+import com.qsoa.system.response.Response2;
+
+@Controller
+@RequestMapping("/api/admin")
+@RestController
+public class AdminController {
+	
+	@Resource
+	private AdminService adminService;
+	
+	@PostMapping("/register")
+	public Response register() {
+		Response res = Response.getResponse();
+		return null;
+	}
+}

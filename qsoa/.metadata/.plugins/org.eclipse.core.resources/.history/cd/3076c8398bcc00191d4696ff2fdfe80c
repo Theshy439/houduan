@@ -1,0 +1,5 @@
+package com.qsoa.admin.seriver.impl;
+
+public class AdminServiceImpl {
+
+}

@@ -1,0 +1,10 @@
+package com.qsoa.admin.mapper;
+
+import com.qsoa.admin.pojo.AdminInfo;
+
+public interface AdminInfoMpper {
+	/**
+	 * 保存数据
+	 */
+	int insert(AdminInfo adminInfo);
+}

@@ -1,0 +1,19 @@
+package com.qsoa.admin.pojo;
+
+public class AdminUser {
+	private Integer id;
+	private String UserName;
+	private String password;
+	private Long phone;
+	private String createBy;
+	private Long createDate;
+	private String updateBy;
+	private Long updateDate;
+public AdminUser() {
+}
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return super.toString();
+}
+}

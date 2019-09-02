@@ -5,7 +5,7 @@ spring:
    datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/qsoa?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      url: jdbc:mysql://localhost:3306/qsoa?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
       username: root
       password: 123#E@S7rsNzfE26yMC #E@S7rsNzfE26yMC
       initialSize: 1
@@ -30,6 +30,11 @@ spring:
 #connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 # 合并多个DruidDataSource的监控数据
 #useGlobalDataSourceStat: true
+   http:
+      encoding:
+         force: true
+         charset: UTF-8
+         enabled: true
    jackson:
       time-zone: GMT+8
       date-format: yyyy-MM-dd HH:mm:ss
@@ -43,7 +48,12 @@ spring:
 mybatis:
    configuration:
       map-underscore-to-camel-case: true
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
    mapper-locations: classpath:mapper/*.xml
    typeAliasesPackage: com.qsoa.**.pojo
+logging:
+  config: classpath:logback-boot.xml
+  level:
+    com.qsoa.*.mapper: debug
 server:
-   port: 8080
+   port: 8111

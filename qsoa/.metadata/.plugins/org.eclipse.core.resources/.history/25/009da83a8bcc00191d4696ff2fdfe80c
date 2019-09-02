@@ -1,0 +1,5 @@
+package com.qsoa.admin.seriver;
+
+public interface AdminService {
+
+}

@@ -1,0 +1,5 @@
+package com.qsoa.system.response;
+
+public class Response {
+
+}

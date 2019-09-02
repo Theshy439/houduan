@@ -1,0 +1,22 @@
+package com.qsoa.system.response;
+
+public class Response {
+	private static Response response;
+
+	private int status;
+
+	private String message;
+
+	private Object data;
+
+	private Response() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static Response getResponse() {
+		if (response == null) {
+			response = new Response();
+		}
+		return response;
+	}
+}

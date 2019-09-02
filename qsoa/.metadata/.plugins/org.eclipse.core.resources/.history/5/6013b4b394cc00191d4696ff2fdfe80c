@@ -1,0 +1,7 @@
+package com.qsoa.admin.seriver;
+
+import com.qsoa.admin.pojo.AdminInfo;
+
+public interface AdminService {
+	boolean insert(AdminInfo admininfo);
+}
