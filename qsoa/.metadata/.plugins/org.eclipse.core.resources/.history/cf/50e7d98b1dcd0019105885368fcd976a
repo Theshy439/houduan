@@ -24,15 +24,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void insert(AdminInfo adminInfo) {
 		adminInfoMapper.insert(adminInfo);	
-		//throw new RuntimeException("主动抛出个异常");
-	}
-
-	@Override
-	public boolean checkInfo(String username, String password) {
-		if(adminInfoMapper.checkAdminInfo(username, password) != 0) {
-			return true;
-		}
-		return false;
+		throw new RuntimeException("主动抛出个异常");
 	}
 
 }

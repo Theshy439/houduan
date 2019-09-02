@@ -27,12 +27,4 @@ public class AdminServiceImpl implements AdminService{
 		//throw new RuntimeException("主动抛出个异常");
 	}
 
-	@Override
-	public boolean checkInfo(String username, String password) {
-		if(adminInfoMapper.checkAdminInfo(username, password) != 0) {
-			return true;
-		}
-		return false;
-	}
-
 }

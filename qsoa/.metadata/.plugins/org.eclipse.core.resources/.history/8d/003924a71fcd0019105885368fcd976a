@@ -6,8 +6,6 @@ public class Response {
 	private static Response response;
 
 	private int status;
-	
-	private int code;
 
 	private String message;
 
@@ -24,34 +22,28 @@ public class Response {
 		return response;
 	}
 
-	public static Response getResponse(int status,int code,String message,Map<String, Object> data) {
+	public static Response getResponse(int status,String message,Map<String, Object> data) {
 		Response response = new Response();
 		response.status = status;
-		response.code = code;
 		response.message = message;
 		response.data = data;
 		return response;	
 	}
 	
-	public static Response success(int status,int code) {
-		return getResponse(status,code, "成功", null);
-	}
-	
-	
 	public static Response success(Map<String, Object> data) {
-		return getResponse(200,200,"成功",data);
+		return getResponse(200,"成功",data);
 	}
 	
 	public static Response success(String message,Map<String, Object> data) {
-		return getResponse(200,200, message, data);
+		return getResponse(200, message, data);
 	}
 	
 	public static Response error() {
-		return getResponse(500,500, "失败", null);
+		return getResponse(500, "失败", null);
 	}
 	
-	public static Response error(int status,int code,String message) {
-		return getResponse(status,code, message, null);
+	public static Response error(int status,String message) {
+		return getResponse(status, message, null);
 	}
 	
 	public int getStatus() {
@@ -80,14 +72,6 @@ public class Response {
 
 	public static void setResponse(Response response) {
 		Response.response = response;
-	}
-
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
 	}
 	
 	

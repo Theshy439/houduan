@@ -6,7 +6,4 @@
 		INSERT INTO `qsoa`.`admin_info` ( `username`, `password`, `phone`, `create_by`, `create_date`, `update_by`, `update_date`) 
 		VALUES ( #{username}, #{password}, #{phone}, #{createBy}, #{createDate}, #{updateBy}, #{updateDate});
 	</insert>
-	<select id="checkAdminInfo" parameterType="String" resultType="int">
-		select count(*) from admin_info where username=#{username} and password=#{password}
-	</select>
 </mapper>

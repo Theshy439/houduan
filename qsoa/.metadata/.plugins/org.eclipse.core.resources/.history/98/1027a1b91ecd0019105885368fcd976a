@@ -32,27 +32,9 @@ public class AdminController {
 			adminInfo.setUpdateBy("高德鹏");
 			adminInfo.setUpdateDate(System.currentTimeMillis());
 			adminService.insert(adminInfo);
-			return Response.getResponse(200,200, "成功", null);	
+			return Response.getResponse(200, "成功", null);	
 		}catch(Exception e) {
-			return Response.getResponse(500,500, "失败", null);
-		}
-	}
-	
-	@PostMapping("/login")
-	public Response login(String username,String password) {
-		if(username == null) {
-			return Response.error(501,501, "用户名为空");
-		}
-		if(password == null) {
-			return Response.error(501,501, "密码为空");
-		}
-		try {
-			if(adminService.checkInfo(username, password)) {
-				return Response.success(null);
-			}
-			return Response.success(200, 201);
-		}catch(Exception e) {
-			return Response.error(500, 500, "服务异常");
+			return Response.getResponse(500, "失败", null);
 		}
 	}
 }

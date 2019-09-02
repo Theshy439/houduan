@@ -32,9 +32,9 @@ public class AdminController {
 			adminInfo.setUpdateBy("高德鹏");
 			adminInfo.setUpdateDate(System.currentTimeMillis());
 			adminService.insert(adminInfo);
-			return Response.getResponse(200,200, "成功", null);	
+			return Response.getResponse(200, "成功", null);	
 		}catch(Exception e) {
-			return Response.getResponse(500,500, "失败", null);
+			return Response.getResponse(500, "失败", null);
 		}
 	}
 	
