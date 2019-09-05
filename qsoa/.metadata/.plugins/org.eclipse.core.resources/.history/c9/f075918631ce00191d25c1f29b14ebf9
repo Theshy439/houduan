@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qsoa.admin.mapper.AdminInfoMapper">
+	<insert id="insert" parameterType="com.qsoa.admin.pojo.AdminInfo" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO `qsoa`.`admin_info` ( `username`, `password`, `phone`, `create_by`, `create_date`, `update_by`, `update_date`) 
+		VALUES ( #{username}, #{password}, #{phone}, #{createBy}, #{createDate}, #{updateBy}, #{updateDate});
+	</insert>
+	<select id="checkAdminInfo" parameterType="String" resultType="int">
+		select count(*) from admin_info where username=#{username} and password=#{password}
+	</select>
+	<update id="setPassword">
+		update admin_info set password = #{password},salt = #{salt} where id = #{id}
+	</update>
+	<select id="getSalt" parameterType="String" resultType="String">
+		select salt from admin_info where username = #{username}
+	</select>
+</mapper>

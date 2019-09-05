@@ -9,11 +9,24 @@ public class AdminInfo {
 	private Long createDate;
 	private String updateBy;
 	private Long updateDate;
+	private String salt;
 
 	public AdminInfo() {
 	}
 
 	
+
+	public String getSalt() {
+		return salt;
+	}
+
+
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+
 
 	public Integer getId() {
 		return id;

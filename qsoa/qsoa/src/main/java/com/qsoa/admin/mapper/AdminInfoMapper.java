@@ -15,4 +15,16 @@ public interface AdminInfoMapper {
 	 * 验证用户名和密码
 	 */
 	int checkAdminInfo(@Param("username")String username,String password);
+	/**
+	 * 设置密码
+	 */
+	int setPassword(Integer id,String password,String salt);
+	/**
+	 * 获取盐值
+	 */
+	String getSalt(String username);
+	/**
+	 * 获取单个对象
+	 */
+	AdminInfo getAdminInfoByUsernameAndPassword(String username,String password);
 }

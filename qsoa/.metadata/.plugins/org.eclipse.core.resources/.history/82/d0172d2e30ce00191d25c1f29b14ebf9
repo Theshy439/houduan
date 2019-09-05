@@ -1,0 +1,5 @@
+package com.qsoa.system.config.fifter;
+
+public class AuthenticationInterceptor {
+
+}

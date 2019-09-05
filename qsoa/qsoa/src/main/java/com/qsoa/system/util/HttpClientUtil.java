@@ -1,0 +1,42 @@
+package com.qsoa.system.util;
+
+
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.PostMethod;
+
+public class HttpClientUtil {
+	public String postSend(String uri,String contentType,Map<String, String> params) {
+		String result = null;
+		try {
+		HttpClient hc = new HttpClient();
+		PostMethod post = new PostMethod(uri);
+		post.addRequestHeader("Content-Type",contentType);
+		Set<String> keys = params.keySet();
+		if(keys.size() > 0) {
+			NameValuePair[] nvpArr = new NameValuePair[keys.size()];
+			int i =0;
+			for(String key : keys) {
+				nvpArr[i] = new NameValuePair(key,params.get(key));
+				i++;
+			}
+			post.setRequestBody(nvpArr);
+		}
+			hc.executeMethod(post);
+			int statusCode = post.getStatusCode();
+			System.out.println("返回状态״̬:"+statusCode);
+			result = post.getResponseBodyAsString();
+		} catch (HttpException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+}

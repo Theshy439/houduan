@@ -42,6 +42,10 @@ public class Response {
 		return getResponse(200,200,"成功",data);
 	}
 	
+	public static Response success(int status,int code,String message) {
+		return getResponse(status,code,message,null);
+	}
+	
 	public static Response success(String message,Map<String, Object> data) {
 		return getResponse(200,200, message, data);
 	}

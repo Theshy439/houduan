@@ -1,0 +1,40 @@
+package com.wcc.user.util;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Random;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Slf4j
+public class RandomUtil {
+    /**
+     * 随机生成验证码
+     * @param digit 位数 至少是1位数
+     */
+	private Logger logger = LoggerFactory.getLogger(Random.class);
+    public static StringBuffer getVerificationCode(int digit){
+        if(digit <= 0){
+            log.warn("未生成验证码的原因:输入位数小于等于0",digit);
+            return null;
+        }
+        StringBuffer verificationCode = new StringBuffer(digit);
+        String[][] _verificationCode = new String[digit][10];
+        for(int i=0;i<digit;i++){
+            int length = _verificationCode[i].length;
+            for(int j=0;j<length;j++){
+                _verificationCode[i][j] = String.valueOf((int)(1+Math.random()*9));
+            }
+        }
+       for(int i=0;i<digit;i++){
+            int suiji = (int)(1+Math.random()*9);
+            verificationCode.append(_verificationCode[i][suiji]);
+        }
+        return verificationCode;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getVerificationCode(4));
+    }
+}

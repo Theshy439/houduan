@@ -1,0 +1,5 @@
+package com.qsoa.system.util;
+
+public class RedisUtil {
+
+}

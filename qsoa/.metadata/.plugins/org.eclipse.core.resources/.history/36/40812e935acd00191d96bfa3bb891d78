@@ -1,0 +1,5 @@
+package com.qsoa.system.redis.config;
+
+public class RedisConfig {
+
+}

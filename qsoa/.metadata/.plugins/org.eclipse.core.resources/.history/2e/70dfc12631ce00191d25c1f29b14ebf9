@@ -1,0 +1,54 @@
+package com.qssoft;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class LoginInterceptor implements HandlerInterceptor	 {
+
+   
+
+    /**
+     * 进入controller层之前拦截请求
+     * @param httpServletRequest
+     * @param httpServletResponse
+     * @param o
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+
+        log.info("---------------------开始进入请求地址拦截----------------------------");
+        //System.out.println(httpServletRequest.getSession().getAttribute("userId"));
+ 
+        if(httpServletRequest.getSession().getAttribute("userId") == null) {
+        	log.info("---------------------服务器中没有用户的有关标识，不能放行，重定向到返回重新登录信息的接口----------------------------");
+        	httpServletResponse.sendRedirect("http://localhost:8801/qsoa/user/obsole");
+        	return false;
+        }
+        log.info("---------------------服务器中有用户的有关标识，放行----------------------------");
+        return true;
+
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
+        log.info("--------------处理请求完成后视图渲染之前的处理操作---------------");
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
+        log.info("---------------视图渲染之后的操作-------------------------0");
+    }
+
+	
+
+	
+}
